@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	
+	<package name="helloworld" namespace="/" extends="struts-default">
+		<default-action-ref name="index"></default-action-ref>
+		<action name="index">
+			<result>/error.jsp</result>
+		</action>
+		
+		<action name="*_*" method="{2}" class="com.struts2.action.{1}Action">
+			<result name="success">/hello.jsp</result>
+			<result name="add">/{2}.jsp</result>
+			<result name="update">/{2}.jsp</result>
+		</action>
+	
+		<!-- <action name="addAction" method="add"
+			class="com.struts2.action.HelloWorldAction">
+			<result>/add.jsp</result>
+		</action>
+
+		<action name="updateAction" method="update"
+			class="com.struts2.action.HelloWorldAction">
+			<result>/update.jsp</result>
+		</action> -->
+	</package>
+<!-- 	<constant name="struts.action.extension" value="html"></constant> -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="false"></constant>
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+</struts>
